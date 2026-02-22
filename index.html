@@ -114,7 +114,52 @@ footer {
     padding: 30px;
     font-size: 14px;
 }
+/* ===== SLIDING BACKGROUND SECTIONS ===== */
 
+.bg-section {
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.bg-section .section-content {
+    position: relative;
+    z-index: 2;
+}
+
+.bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+.bg-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 100%;
+    display: flex;
+    animation: slideImages 24s infinite;
+}
+
+.bg-slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+@keyframes slideImages {
+    0% { transform: translateX(0); }
+    30% { transform: translateX(0); }
+    33% { transform: translateX(-100%); }
+    63% { transform: translateX(-100%); }
+    66% { transform: translateX(-200%); }
+    96% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+}
 </style>
 </head>
 
@@ -135,18 +180,36 @@ footer {
     <a href="#contact">Contact</a>
 </nav>
 
-<section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-        <p>Hi, I’m <strong>Huda Huseini</strong>, a 3rd-year veterinary student in the 5-year program at the University of Edinburgh Royal (Dick) School of Veterinary Studies.</p>
+<section id="about" class="bg-section">
+    <div class="bg-slider">
+        <div class="bg-slide" style="background-image: url('owl.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('horse.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('surgery.jpeg');"></div>
+    </div>
+    <div class="bg-overlay"></div>
 
-        <p>I was accepted into four veterinary schools and have completed over 300 hours of animal work experience across multiple species and roles. I understand exactly what admissions committees are looking for — because I’ve been through it successfully.</p>
+    <div class="section-content">
+        <h2>About Me</h2>
+        <div class="card">
+            <p>Hi, I’m <strong>Huda Huseini</strong>, a 3rd-year veterinary student in the 5-year program at the University of Edinburgh Royal (Dick) School of Veterinary Studies.</p>
 
-        <p>I created Vet Path Program to make the path to vet school feel clear, structured, and possible. This process shouldn’t feel overwhelming — it should feel strategic.</p>
+            <p>I was accepted into four veterinary schools and have completed over 300 hours of animal work experience across multiple species and roles. I understand exactly what admissions committees are looking for — because I’ve been through it successfully.</p>
+
+            <p>I created Vet Path Program to make the path to vet school feel clear, structured, and possible. This process shouldn’t feel overwhelming — it should feel strategic.</p>
+        </div>
     </div>
 </section>
 
 <section id="services">
+    <section id="services" class="bg-section">
+    <div class="bg-slider">
+        <div class="bg-slide" style="background-image: url('horse.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('owl.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('surgery.jpeg');"></div>
+    </div>
+    <div class="bg-overlay"></div>
+
+    <div class="section-content">
     <h2>Services</h2>
 
     <div class="services">
@@ -173,7 +236,15 @@ footer {
     </div>
 </section>
 
-<section id="testimonials">
+<section id="testimonials" class="bg-section">
+    <div class="bg-slider">
+        <div class="bg-slide" style="background-image: url('surgery.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('horse.jpeg');"></div>
+        <div class="bg-slide" style="background-image: url('owl.jpeg');"></div>
+    </div>
+    <div class="bg-overlay"></div>
+
+    <div class="section-content">
     <h2>Testimonials</h2>
     <div class="card testimonial">
         <p>“Huda really helped Grace see a real possibility of getting into vet school.”</p>

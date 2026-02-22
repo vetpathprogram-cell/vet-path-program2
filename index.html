@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vet Path Program | Huda Huseini</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f6f3;
+    color: #2f3e2f;
+    scroll-behavior: smooth;
+}
+
+header {
+    background-color: #dde5d9;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+.cta {
+    margin-top: 25px;
+}
+
+.cta button {
+    background-color: #6a8f6b;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.cta button:hover {
+    background-color: #557a56;
+}
+
+nav {
+    background: white;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 18px;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+nav a {
+    text-decoration: none;
+    color: #557a56;
+    font-weight: 500;
+}
+
+section {
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 50px;
+    font-size: 32px;
+}
+
+.card {
+    background: white;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.price {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 10px;
+    color: #6a8f6b;
+}
+
+.testimonial {
+    font-style: italic;
+}
+
+footer {
+    background-color: #dde5d9;
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Vet Path Program</h1>
+    <p>Mentorship for ambitious students pursuing veterinary medicine — from high school planning to vet school acceptance.</p>
+    <div class="cta">
+        <button onclick="document.getElementById('contact').scrollIntoView()">Work With Me</button>
+    </div>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+        <p>Hi, I’m <strong>Huda Huseini</strong>, a 3rd-year veterinary student in the 5-year program at the University of Edinburgh Royal (Dick) School of Veterinary Studies.</p>
+
+        <p>I was accepted into four veterinary schools and have completed over 300 hours of animal work experience across multiple species and roles. I understand exactly what admissions committees are looking for — because I’ve been through it successfully.</p>
+
+        <p>I created Vet Path Program to make the path to vet school feel clear, structured, and possible. This process shouldn’t feel overwhelming — it should feel strategic.</p>
+    </div>
+</section>
+
+<section id="services">
+    <h2>Services</h2>
+
+    <div class="services">
+        <div class="card">
+            <h3>Basic Package</h3>
+            <div class="price">$15</div>
+            <p>• Application review<br>
+               • 15-minute consultation call</p>
+        </div>
+
+        <div class="card">
+            <h3>Standard Package</h3>
+            <div class="price">$35</div>
+            <p>• Everything in Basic<br>
+               • Essay writing support + feedback</p>
+        </div>
+
+        <div class="card">
+            <h3>Premium Package</h3>
+            <div class="price">$50</div>
+            <p>• Everything in Standard<br>
+               • Interview preparation + mock interview practice</p>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials">
+    <h2>Testimonials</h2>
+    <div class="card testimonial">
+        <p>“Huda really helped Grace see a real possibility of getting into vet school.”</p>
+        <p>— Parents of Grace T.</p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+        <p>Email: your.email@example.com</p>
+        <p>Instagram: @vetpathprogram</p>
+        <p>All consultations are scheduled via email inquiry.</p>
+    </div>
+</section>
+
+<footer>
+    © 2026 Vet Path Program | Founded by Huda Huseini
+</footer>
+
+</body>
+</html>

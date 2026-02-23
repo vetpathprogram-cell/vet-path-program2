@@ -281,66 +281,59 @@ footer h3 {
     <h3>Not affiliated with any college or university</h3>
 </footer>
 <script>
+<script>
 const track = document.querySelector('.carousel-track');
 const slides = document.querySelectorAll('.carousel-track img');
 const nextButton = document.querySelector('.next');
 const prevButton = document.querySelector('.prev');
 
-let currentIndex = 1;
-let slideWidth = slides[0].clientWidth;
+let currentIndex = 0;
+let autoSlideInterval;
 
-// Clone first and last slides
-const firstClone = slides[0].cloneNode(true);
-const lastClone = slides[slides.length - 1].cloneNode(true);
-
-track.appendChild(firstClone);
-track.insertBefore(lastClone, slides[0]);
-
-const allSlides = document.querySelectorAll('.carousel-track img');
-
-track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-
-// Move to next slide
-function moveToSlide() {
-    track.style.transition = "transform 0.6s ease-in-out";
-    track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+function updateSlide() {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
 }
 
-// Next
+function nextSlide() {
+    if (currentIndex >= slides.length - 1) {
+        currentIndex = 0;
+    } else {
+        currentIndex++;
+    }
+    updateSlide();
+}
+
+function prevSlide() {
+    if (currentIndex <= 0) {
+        currentIndex = slides.length - 1;
+    } else {
+        currentIndex--;
+    }
+    updateSlide();
+}
+
 nextButton.addEventListener('click', () => {
-    if (currentIndex >= allSlides.length - 1) return;
-    currentIndex++;
-    moveToSlide();
+    nextSlide();
+    resetAutoSlide();
 });
 
-// Previous
 prevButton.addEventListener('click', () => {
-    if (currentIndex <= 0) return;
-    currentIndex--;
-    moveToSlide();
+    prevSlide();
+    resetAutoSlide();
 });
 
-// Reset position instantly when hitting clone
-track.addEventListener('transitionend', () => {
-    if (allSlides[currentIndex].isEqualNode(firstClone)) {
-        track.style.transition = "none";
-        currentIndex = 1;
-        track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-    }
+function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+        nextSlide();
+    }, 5000); // 5 seconds
+}
 
-    if (allSlides[currentIndex].isEqualNode(lastClone)) {
-        track.style.transition = "none";
-        currentIndex = allSlides.length - 2;
-        track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-    }
-});
+function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+}
 
-// Auto slide every 5 seconds
-setInterval(() => {
-    if (currentIndex >= allSlides.length - 1) return;
-    currentIndex++;
-    moveToSlide();
-}, 5000);
+startAutoSlide();
 </script>
 </body>
 </html>

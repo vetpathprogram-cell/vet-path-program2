@@ -163,8 +163,15 @@ footer h3 {
     background: rgba(0,0,0,0.7);
 }
 .carousel {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
+    position: relative;
+    width: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 500px;
+    overflow: hidden;
+    border-radius: 14px;
+    margin-top: 40px;
+}
 }
 </style>
 </head>
@@ -278,25 +285,57 @@ footer h3 {
 </footer>
 <script>
 const track = document.querySelector('.carousel-track');
-const slides = Array.from(track.children);
+const slides = document.querySelectorAll('.carousel-track img');
 const nextButton = document.querySelector('.next');
 const prevButton = document.querySelector('.prev');
 
 let currentIndex = 0;
+let autoSlideInterval;
 
 function updateSlide() {
-    track.style.transform = 'translateX(-' + currentIndex * 100 + '%)';
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+function nextSlide() {
+    if (currentIndex >= slides.length - 1) {
+        currentIndex = 0;
+    } else {
+        currentIndex++;
+    }
+    updateSlide();
+}
+
+function prevSlide() {
+    if (currentIndex <= 0) {
+        currentIndex = slides.length - 1;
+    } else {
+        currentIndex--;
+    }
+    updateSlide();
 }
 
 nextButton.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlide();
+    nextSlide();
+    resetAutoSlide();
 });
 
 prevButton.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateSlide();
+    prevSlide();
+    resetAutoSlide();
 });
+
+function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+        nextSlide();
+    }, 5000); // 5 seconds
+}
+
+function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+}
+
+startAutoSlide();
 </script>
 </body>
 </html>

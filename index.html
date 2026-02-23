@@ -134,17 +134,17 @@ footer h3 {
 
 .carousel-track {
     display: flex;
-    gap: 20px;                    /* spacing between images */
+    gap: 20px;
     transition: transform 0.6s ease-in-out;
-    padding: 10px;
+    align-items: center;
 }
 
-/* KEY FIX */
 .carousel-track img {
-    flex: 0 0 calc(25% - 15px);   /* show 3 images at once */
+    width: 300px;              /* fixed clean card width */
     height: 480px;
-    object-fit: contain;              /* show full image */
-    background: #f4f6f3;              /* prevents ugly empty space */
+    flex-shrink: 0;            /* prevents stretching */
+    object-fit: contain;       /* shows whole image */
+    background: #f4f6f3;
     border-radius: 10px;
 }
 .carousel-btn {
@@ -296,7 +296,8 @@ let currentIndex = 0;
 let autoSlideInterval;
 
 function updateSlide() {
-    track.style.transform = `translateX(-${currentIndex * 25}%)`;
+    const slideWidth = slides[0].clientWidth + 20; // image width + gap
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 }
 
 function nextSlide() {
